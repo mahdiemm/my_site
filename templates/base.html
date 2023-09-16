@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>خانه</title>
+        <!-- Option 1: Include in HTML -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head> 
+    <body>
+        <header class="header">
+            <div id="left_side">
+                <div id="section1">
+                    <ul id="log_sing">
+                        <li><a href="" id="signin">ثبت نام</a></li>
+                        <li><a href="" id="login">ورود</a></li>
+                    </ul>
+                </div>
+                <div id="section2">
+                    <ul class="cart_notif">
+                        <li id="notification"><i class="bibe bi-bell"></i></li>
+                        <li id="line"><hr class="rotate"></li>
+                        <li id="cart"><i class="bica bi-cart"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="right_side">
+                <div id="section3">
+                    <ul class="select_search">
+                        <li class="search_box">
+                            <input type="search" name="" id="general_search">
+                        </li>
+                        <li class="language_selector">
+                            <form>
+                                <select name="language" id="language_selector">
+                                    <option value="">Change Language</option>
+                                    <option value="Eng"><a href="">English</a></option>
+                                    <option value="IR" selected><a href="">Persian</a></option>
+                                </select>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div id="section4">
+                    <ul class="support">
+                        <li id="Email_support">info@plasmain.ir &nbsp;<i class="bien bi-envelope"></i></li>
+                        <li id="telephone_support">۰۷۱۳۷۲۴۲۲۱۷ <i class="bite bi-telephone"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <hr>
+    </body>
+</html>
