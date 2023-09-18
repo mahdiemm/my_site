@@ -10,46 +10,78 @@
     </head> 
     <body>
         <header class="header">
-            <div id="left_side">
-                <div id="section1">
-                    <ul id="log_sing">
-                        <li><a href="" id="signin">ثبت نام</a></li>
-                        <li><a href="" id="login">ورود</a></li>
-                    </ul>
-                </div>
-                <div id="section2">
-                    <ul class="cart_notif">
-                        <li id="notification"><i class="bibe bi-bell"></i></li>
-                        <li id="line"><hr class="rotate"></li>
-                        <li id="cart"><i class="bica bi-cart"></i></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="right_side">
-                <div id="section3">
-                    <ul class="select_search">
-                        <li class="search_box">
-                            <input type="search" name="" id="general_search">
-                        </li>
-                        <li class="language_selector">
-                            <form>
-                                <select name="language" id="language_selector">
-                                    <option value="">Change Language</option>
-                                    <option value="Eng"><a href="">English</a></option>
-                                    <option value="IR" selected><a href="">Persian</a></option>
-                                </select>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <div id="section4">
-                    <ul class="support">
-                        <li id="Email_support">info@plasmain.ir &nbsp;<i class="bien bi-envelope"></i></li>
-                        <li id="telephone_support">۰۷۱۳۷۲۴۲۲۱۷ <i class="bite bi-telephone"></i></li>
-                    </ul>
+            <div id="section_header">
+                <div class="container_header">
+                    <div id="right_side">
+                        <div id="section1" class="sec_header">
+                            <div id="email_support">info@plasmain.ir &nbsp;<i class="bien bi-envelope"></i></div>
+                            <div id="space_one"></div>
+                            <div id="telephone_support">۰۷۱۳۷۲۴۲۲۱۷ <i class="bite bi-telephone"></i></div>
+                        </div>
+                        <div id="section2" class="sec_header">
+                            <ul id="select_search" class="header_unorder_list" >
+                                <li class="search_box">
+                                    <form id="general_search_form" action="/search" >
+                                        <input type="search" name="" id="general_search" placeholder="جستجو..." aria-label="search">
+                                        <button id="general_search_button" type="submit">
+                                            <i class="bise bi-search"></i>
+                                        </button>
+                                    </form>
+                                </li>
+                                <li class="language_selector">
+                                    <form>
+                                        <select name="language" id="language_selector">
+                                            <option value="">Change Language</option>
+                                            <option value="Eng"><a href="">English</a></option>
+                                            <option value="IR" selected><a href="">Persian</a></option>
+                                        </select>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="left_side">
+                        <div id="section3" class="sec_header">
+                            <div id="notification"><i class="bibe bi-bell"></i></div>
+                            <div id="line"><hr class="rotate"></div>
+                            <div id="cart"><i class="bica bi-cart"></i></div>
+                        </div>
+                        <div id="section4" class="sec_header">
+                            <ul id="log_sing" class="header_unorder_list">
+                                <li><a href="" id="signin" class="link_decoration">ثبت نام</a></li>
+                                <li><a href="" id="login"class="link_decoration" >ورود</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
-        <hr>
+        <nav id="nav_bar" >
+            <div class="container" >
+                <div id="nav_content" >
+                    <a id="nav_logo" href=""><img src="{% static 'logo top final test.png' %}" alt=""></a>
+                    <div id="nav_list" >
+                        <ul id="nav_unorder_list">
+                            <li id="nav_courses">
+                                <div id="dropdown_courses">
+                                    <button class="dropbtn_courses">دوره‌های آموزشی</button>
+                                    <div class="dropdown-content">
+                                    <!-- <a href="#">پزشکی</a>
+                                    <a href="#">پرستاری</a>
+                                    <a href="#">دانشگاه پلاسمایی</a>
+                                    <a href="#">به زودی</a> -->
+                                    </div>
+                                  </div>
+                            </li>
+                            <li><a href="" id="nav_home"class="link_decoration" >خانه</a></li>
+                            <li><a href="" id="nav_blogs" class="link_decoration">وبلاگ</a></li>
+                        </ul>
+                    </div>
+                    <div id="nav_request" >
+                        <a href="" id="teach_request" class="link_decoration">دوره‌ی خودت رو شروع کن</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </body>
 </html>
