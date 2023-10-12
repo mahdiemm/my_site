@@ -2,270 +2,290 @@
     font-family: "IRANsans";
     src: url("font/A-Iranian-Sans/Sans\ a4fran3.woff");
 }
+
 /* Option 2: Import via CSS */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-body{
-    margin: 0px;
+
+body {
+    font-family: IRANsans;
+    margin:0;
+	padding:0;
+	height: 100%;
 }
 
-#section_header{
-    margin:0;
-    padding:0;
-    height:53px;
-    width:100%;
-    border-bottom:1px solid #ececec;
+.bite::before,
+.bien::before {
+    font-size: large;
+    margin-left: 3px;
 }
-.container_header{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    align-items:center;
-    height:53px;
-    margin:0 138.8px;
-    padding:0 15px;
+
+.bica::before,
+.bibe::before {
+    font-size: large;
 }
-#right_side{
-    width:650.267px;
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    align-items:center;
-    height:52.2667px;
-    margin:0;
-    padding:0;
-}
-#left_side{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    align-items:center;
-    height:52.2667px;
-    margin:0;
-    padding:0; 
-    width:255.95px;
-}
-.sec_header{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    align-items:center; 
-}
-.header_unorder_list li{
-    display:inline-block;
-}
-#section1{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    margin-left:30px;
-}
-#telephone_support{
-    font-family: IRANsans;
+
+.font-14 {
     font-size: 0.875rem;
-    display:flex;
-    flex-direction:row;
-    height:20px;
-    justify-content:center;
+    font-weight: normal;
+    line-height: 1.4;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
 }
-.bite::before{
-    font-size: large;
-    vertical-align:middle;
-    margin-left:10px;
-}
-#space_one{
-    padding:0;
-    margin:0 15px;
-}
-#email_support{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    display:flex;
-    flex-direction:row;
-    height:20px;
-    justify-content:center;
-}
-.bien::before{
-    font-size: large;
-    margin-left:10px;
-}
-#section2{
-    padding:0;
-    margin:0;
-    height:53px;
-}
-#select_search{
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-}
-.language_selector{
-    margin-left:15px;
-}
-#language_selector{
-    height:36px;
-    text-align:right;
-    direction:rtl;
-    border:none;
-}
-.search_box{
-    padding:0px;
-    margin:0px;
-}
-#general_search_form{
-    text-align:right;
-    direction:rtl;
-    display:flex;
-    width:209.467px;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    position:relative;
-    border:solid 0.7333px #ececec;
-    border-radius:10px;
-    padding:8px 16px;
-    margin-left:5px;
-}
-#general_search{
-    border:none;
-    padding:0px;
-    height:28px;
-    width:218.06px;
+
+.section-1 {
     font-family: IRANsans;
-    font-size: 0.675rem;
 }
-#general_search_button{
-    border:none;
-    margin:0px;
-    padding:0px;
-    background-color:white;
-    width:25px;
-    text-align:right;
+.form_language {
+    /* border: none !important; */
+    width: auto !important;
+    margin-left: 15px;
+    padding: 0px;
+    line-height: 1.3;
+    color: #343434;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: none !important;
 }
-.bise::before{
+
+.search-box {
+    width: 230px !important;
+}
+@media screen and (max-width: 490px) {
+    .search-box {
+        width: 170px !important;
+    }
+}
+
+.search-section {
+    border: 1px solid #ececec !important;
+    box-shadow: none !important;
+    font-family: IRANsans;
+    font-size: 0.75rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #343434;
+}
+
+.search-section[type=text]:focus {
+    border: 1px solid #1FB354 !important;
+}
+
+.bi-search::before {
     font-size: large;
-    color:rgba(0,0,0,50%);
+    color: #343434;
 }
-#section3{
-    direction:rtl;
-    height:53px;
+
+.search-button:active,
+.search-button:hover {
+    background-color: #1FB354 !important;
 }
-.bica::before, .bibe::before{
-    font-size:x-large;
-    color:rgba(0,0,0,50%);
+
+.search-button:hover>.bi-search::before {
+    color: white;
 }
-#notification, #cart{
-    width:30px;
-    text-align:right;
-    padding:0;
+
+.search-button {
+    border: 1px solid #ececec !important;
+    background-color: #ececec;
 }
-#line{
-    height:53px;
-    margin:0 15px;
-    border-left:1px solid #ececec;
+
+.support-section {
+    flex-wrap: nowrap;
 }
-#log_sing{
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
+
+#line {
+    height: 53px;
+    border-left: 1px solid #ececec;
 }
-#signin{
-    padding:5px 10px;
-    margin:0;
-    color:black;
+
+#signin,
+#login {
+    color: black;
     font-family: IRANsans;
     font-size: 0.8rem;
 }
-#login{
-    padding:5px 10px;
-    margin-left:10px;
-    color:black;
-    font-family: IRANsans;
-    font-size: 0.8rem;
+
+@media screen and (max-width: 767px){
+    .section-2 {
+        border-bottom: 1px solid #e2e3e5;
+    }
+    .font-14 {
+        margin-left: 0px;
+    }
+    .form_language {
+        margin-left: 0px;
+    }
 }
-.link_decoration:link{
-    text-decoration:none;
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .header-section-1 {
+        border-bottom: 1px solid #e2e3e5;
+    }
 }
-#nav_bar{
-    height: 50px;
-    margin: 0px;
+
+.main-nav {
     padding: 10px 20px;
+    background-color: white;
+    position:sticky;
+    top:0;
+    z-index: 100;
 }
-.container{
-    height:50px;
-    margin:0 118.8px;
-    padding:0 15px;
-}
-#nav_content{
-    height:50px;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    align-content:center;
-}
-#nav_unorder_list{
-    padding-right:0px;
-    margin:0px;
-}
-#nav_unorder_list li{
-    display:inline-block;
-    text-align:right;
-    font-family:IRANsans;
-    font-size:15px;
-    padding-left:10px;
-}
-#dropdown_courses{
-    padding-left:15px;
-}
-#nav_logo{
-    margin:0;
-    padding:4.5px 0;
-}
-#nav_list{
-    width:790px;
-    margin:0 30px;
-    padding:0;
-    text-align:right;
-    direction:rtl;
-}
-#nav_request{
-    width:175.44px;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    border:solid 0.733px white;
-    border-radius:10px;
-    background-color:#43d477;
-}
-#teach_request{
-    text-align:center;
-    color:white;
-    font-family:IRANsans;
-    font-size:13.5px;
-}
-.dropbtn_courses{
-    width:172.95px;
-    height:50px;
-    border:solid 1px white;
-    border-radius:10px;
-    font-family: IRANsans;
-    font-size:15px;
-    color:rgba(08,08,64,80%);
-    font-weight:800;
-    padding:0px;
-}
-#nav_home, #nav_blogs{
-    color:black;
+
+.dropdown-toggle::after {
+    content: none !important;
 }
 
 
+.font-course {
+    font-size: 15px !important;
+}
+#navbarSupportedContent ul li ul li .bi::before {
+    font-size: 25px;
+    margin-left: 10px;
+}
+#navbarSupportedContent ul li ul li ul li .bi::before {
+    font-size: 25px;
+    margin-left: 10px;
+}
+.dropdown-item {
+    font-size: 12.5px !important;
+    color: #171347 !important;
+    font-weight: 500 !important;
+}
+.first-main-item{
+    font-size: 12.5px !important;
+    color: #171347 !important;
+    font-weight: 500 !important;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 992px) {
+    .nav-section {
+        margin: 0 30px;
+    }
+    .course-list {
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+        padding: 12px 25px 12px 15px;
+    }
+    
+    .bi-grid::before {
+        font-size: 20px;
+        color: #1f3b64;
+        vertical-align: middle;
+    }
+    #navbarSupportedContent ul li ul li ul{
+        position: absolute;
+        display: none;
+    }
+    
+    #navbarSupportedContent ul li ul li:hover ul{
+        display: block;
+        box-shadow: none;
+        animation: fade_in_show 0.5s;
+    }
+    @keyframes fade_in_show {
+        0% {
+             opacity: 0;
+             transform: scale(0)
+        }
+    
+        100% {
+             opacity: 1;
+             transform: scale(1)
+        }
+    }
+    #navbarSupportedContent ul li ul li a:hover {
+        background-color: #69da91 !important;
+        color: white !important;
+    }
+    
+    .dropdown-course-section {
+        padding: 30px 25px !important;
+    }
+    #navbarSupportedContent ul li ul li:hover {
+        background-color: #69da91 !important;
+        color: white !important;
+    }
+    #navbarSupportedContent ul li ul li .bi-chevron-left::before {
+        font-size: medium;
+        margin-left: 10px;
+    }
+    #navbarSupportedContent ul li ul li .first-main-item:hover {
+        background-color: #69da91 !important;
+        color: white !important;
+    }
+    .sub-menu{
+        right:89%;
+        left:auto;
+        bottom:-10%;
+    }
+    .side-menu{
+        background-color:white;
+        border-radius:15px;
+        width:250px;
+        padding: 30px 25px 12px 25px;
+    }
+}
+.offcanvas{
+    height: 100% !important;
+}
+@media screen and (max-width: 992px){
+    .course-list{
+        position: absolute;
+        display: none;
+    }
+    #navbarSupportedContent ul li ul li a:hover {
+        color: #69da91 !important;
+    }
+}
+.bi-chevron-down::before{
+    font-size: medium !important;
+}
+.footer{
+    margin-top: 205px;
+    background-color: #1f3b64;
+    /* position:absolute; */
+	/* bottom:0;
+	left:0;
+    right: 0; */
+}
+.footer-section1{
+    background-image: url(./pattern.png);
+    background-color: #43d477 ;
+    padding: 30px !important;
+    border-radius: 15px;
+    height: auto;
+}
+.fs-7{
+    font-size: 15px !important;
+}
+.footer-row-1{
+    height: 200px !important;
+}
+.btn-email{
+    background-color: #43d477 !important;
+    font-size: small;
+    padding: 10px 15px;
+}
+.btn-email:hover{
+    background-color: #198754 !important;
+}
+.email-section{
+    padding: 0 !important;
+    height: 40px !important;
+    font-size: small !important;
+}
+@media screen and (min-width: 768px){
+    .footer-section1{
+        height: 200px;
+    }
+}
+.logo-site-footer{
+    border: none !important;
+    background-color: rgba(0,0,0,0) !important;
+}
+.icon-social-media .bi::before{
+    font-size: 35px;
+    color: white;
+}
