@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="blog-header position-relative text-center">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h1 class="fs-3 text-white fw-bold blog-title">{{blog.title}}</h1>
+                <div
+                    class="d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between mt-4 text-white">
+                    <span class="pb-2 pb-md-0">ایجاد شده توسط <a class="text-white link-offset-2"
+                            href="">{{blog.author}}</a></span>
+                    <span class="pb-2 pb-md-0">در <a class="text-white link-offset-2"
+                            href="{% url 'blogs:BlogList'%}">مقالات</a></span>
+                    <span class="pb-2 pb-md-0">{{blog.date |date:"SHORT_DATE_FORMAT"}}</span>
+                    <div class="d-flex flex-row align-items-center justify-content-between">
+                        <div><i class="bi bi-share me-2"></i></div>
+                        <div><a class="link-underline link-underline-opacity-0 text-white share-link" href="">اشتراک گذاری</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog-details">
+    <div class="container mt-3 mt-md-5">
+        <div class="row">
+            <div class="col-12 col-lg-8 px-3 px-lg-0">
+                <div class="show-post mt-5 d-flex flex-column align-items-center">
+                    <div class="pb-5"><img class="img-thumbnail rounded-4" src="{{blog.image.url}}" alt=""></div>
+                    <p class="text-blog">{{blog.body}}</p>
+                </div>
+                <div class="mt-5">
+                    <div class="row">
+                        <div class="col-1 comments-num">
+                            <div class="row">
+                                <span class="col-6">نظر</span>
+                                <span class="col-6">(۲)</span>
+                            </div>
+                        </div>
+                        <div class="col-11 d-flex flex-column">
+                            <div class="border-bottom h-50"></div>
+                            <div class="h-50"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <textarea class="form-control comment-box" id="exampleFormControlTextarea1"></textarea>
+                        <button type="submit" class="btn comment-button text-white mt-3">ارسال</button>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
