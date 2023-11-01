@@ -268,10 +268,6 @@ body {
 .footer {
     margin-top: 205px;
     background-color: #1f3b64;
-    /* position:absolute; */
-    /* bottom:0;
-	left:0;
-    right: 0; */
 }
 
 .footer-section1 {
@@ -291,13 +287,15 @@ body {
 }
 
 .btn-email,
-.comment-button {
+.comment-button,
+.btn-copy {
     background-color: #43d477 !important;
     font-size: small;
     padding: 10px 15px;
 }
 
-.btn-email:hover {
+.btn-email:hover,
+.btn-copy:hover {
     background-color: #198754 !important;
 }
 
@@ -604,13 +602,14 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
+
 }
-.list-page li a{
+
+.list-page li a {
     width: 48px;
     height: 48px;
     border: solid 1px #43d477;
-    background-color:white;
+    background-color: white;
     border-radius: 50%;
     display: flex;
     flex-direction: row;
@@ -618,7 +617,126 @@ body {
     align-items: center;
 }
 
-.list-page li a:hover{
-    background-color:#43d477;
+.list-page li a:hover {
+    background-color: #43d477;
     color: #f1f1f1 !important;
 }
+
+.share-content {
+    padding: 20px;
+}
+
+.border-section {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    font-size: 16px !important;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #171347;
+}
+
+@media screen and (max-width: 510px) {
+    .section-title {
+        font-size: 13px !important;
+    }
+
+}
+
+.header-share {
+    margin-bottom: 25px;
+}
+
+.text-share {
+    color: #545454;
+    font-size: 13px !important;
+    font-weight: normal;
+}
+
+.text-box-share {
+    margin-top: 20px !important;
+}
+
+.url-section {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.url-blog {
+    color: #545454;
+}
+
+.course-content-section {
+    position: relative;
+    margin-bottom: 250px;
+}
+.tablist-content{
+    background-color: #052c65;
+    border: 1px solid #052c65;
+    width: 90%;
+    font-size: 15px;
+}
+.tablist-content .nav-link.active{
+    border-bottom:5px solid #43d477 !important;
+    background-color: #052c65 !important;
+    color: #b2adad !important;
+}
+.nav-tab-link{
+    font-size: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.font-content{
+    font-size: 14px;
+}
+.video-btn:not(.collapsed){
+    color: #13795b !important;
+    background-color: #cff4fc !important;
+    box-shadow: none !important;
+}
+.video-btn:focus{
+    border: none !important;
+    box-shadow: none !important;
+}
+.question-btn:not(.collapsed){
+    color: #084298 !important;
+    background-color: #cfe2ff !important;
+    box-shadow: none !important;
+}
+.question-btn:focus{
+    border: none !important;
+    box-shadow: none !important;
+}
+.font-text{
+    font-size: 12px;
+}
+.bg-icon{
+    background-color: #43d477 !important;
+}
+.site-top-banner-course{
+    height: 530px;
+}
+@media screen and (max-width: 992px){
+    .site-top-banner-course{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .share{
+        margin-top: 10px !important;
+    }
+}
+@media screen and (max-width: 901px) and (min-width: 768px) {
+    .fs-8{
+        font-size: 13px;
+    }
+}
+.type-course{
+    background-color: #43d477;
+    border-radius: 0px 15px 0px 15px;
+}
+
+
+
+

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load jformat %}
+{% load course_tags %}
+{% block content %}
+<section class="site-top-banner opacity-10 position-relative">
+    <img class="position-absolute top-0 start-0 end-0 bottom-0 z-n1 h-100 w-100 img-cover"
+        src="{% static 'blogs_cover.jpg' %}" alt="">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-12 col-md-9 col-lg-7">
+                <h1 class="blogs-header text-white fw-bold pb-3">پزشکی</h1>
+                <span class="num-blogs text-white rounded-4"><span>{{num_courses}}</span> دوره‌</span>
+                <div class="blogs-search">
+                    <form action="" class="form-control rounded-5 p-3 form-search-blog">
+                        <div class="input-group d-flex align-items-center">
+                            <input type="text"
+                                class="form-control border border-0 shadow-none email-section opacity-50 me-2"
+                                placeholder="جست‌وجو‌ی دوره‌ها، مدرسان و سازمان‌ها..." aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                            <button class="btn rounded-5 text-center mb-md-0 btn-email text-white" type="button"
+                                id="button-addon2">جست‌وجو</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container content-blogs">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="row">
+                {% for course in courses %}
+                <div class="col-12 col-md-4 col-lg-6">
+                    <div class="list-blogs">
+                        <div class="card shadow card-blogs rounded-4 position-relative">
+                            <div class="position-absolute top-0 start-0 z-3 mt-2 ms-2 p-2 type-course text-white font-text">{{course.type}}</div>
+                            <img src="{{course.image.url}}" class="card-img-top image-card" alt="...">
+                            <div class="card-body position-relative" style="height: 275px;">
+                                <div class="d-flex flex-row align-items-center text-secondary" style="height: 15%;">
+                                    <div class="me-2"><i class="bi bi-person"></i></div>
+                                    <div><a class="link-secondary link-underline-opacity-0" href="">{{course.author}}</a></div>
+                                </div>
+                                <div class="card-title h-25">
+                                    <a class="link-underline link-underline-opacity-0 blog-title-card"
+                                        href="{% url 'courses:CourseDetails' slug=course.slug %}">{{course.title}}</a>
+                                </div>
+                                <div style="height: 15%;">
+                                    <span>در <a class="text-black link-offset-2" href="">{{course.subject}}</a></span>
+                                </div>
+                                <div id="star-rating" style="height: 15%;"></div>
+                                <div class="d-flex justify-content-between align-items-center" style="height: 15%;">
+                                    <div class="d-flex justify-content-start align-items-center fs-8">
+                                        <div class="me-2"><i class="bi bi-clock fs-5"></i></div>
+                                        <div><span>۷:۰۰ ساعت</span></div>
+                                    </div>
+                                    <div class="vr h-100"></div>
+                                    <div>
+                                        <div class="d-flex justify-content-start fs-8">
+                                            <div class="me-2"><i class="bi bi-calendar"></i></div>
+                                            <div><span>{{course.date}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-semibold" style="height: 15%; color: #43d477;">
+                                    {% if course.price == 0 %}
+                                    <span>رایگان</span>
+                                    {% else %}
+                                    <span>{{course.price}} تومان</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4"></div>
+    </div>
+    {% if num_courses >= 6 %}
+    <div class="pagination-section">
+        <nav aria-label="Page navigation page-nav">
+            <div class="row justify-content-center">
+                <ul class="pagination p-0 border rounded-pill list-page">
+                    <li class="d-flex align-items-center">
+                        {% if blogs.has_previous %}
+                        <a class="link-secondary" href="?page={{blogs.previous_page_number}}" aria-label="Previous">
+                            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                        </a>
+                        {% else %}
+                        <a class="link-secondary" aria-label="Previous" style="pointer-events: none; border: solid 1px #ececec;
+                        cursor: not-allowed;
+                        color: #ececec;">
+                            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                        </a>
+                        {% endif %}
+                    </li>
+                    {% for page in blogs.paginator.page_range %}
+                    <li class="">
+                        <a class="link-secondary link-underline link-underline-opacity-0"
+                            href="?page={{page}}">{{page}}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="d-flex align-items-center">
+                        {% if blogs.has_next %}
+                        <a class="link-secondary" href="?page={{blogs.next_page_number}}" aria-label="Next">
+                            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                        </a>
+                        {% else %}
+                        <a class="link-secondary" aria-label="Next" style="pointer-events: none; border: solid 1px #ececec;
+                        cursor: not-allowed;
+                        color: #ececec;">
+                            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

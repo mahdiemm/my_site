@@ -9,7 +9,7 @@
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-12 col-md-9 col-lg-7">
                 <h1 class="blogs-header text-white fw-bold pb-3">وبلاگ پلاسمایی</h1>
-                <span class="num-blogs text-white rounded-4">تعداد پست‌ها</span>
+                <span class="num-blogs text-white rounded-4"><span>{{num_blogs}}</span> پست</span>
                 <div class="blogs-search">
                     <form action="" class="form-control rounded-5 p-3 form-search-blog">
                         <div class="input-group d-flex align-items-center">
@@ -35,20 +35,18 @@
                     <div class="list-blogs">
                         <div class="card shadow card-blogs rounded-4">
                             <img src="{{blog.image.url}}" class="card-img-top image-card" alt="...">
-                            <div class="card-body position-relative card-content">
+                            <div class="card-body position-relative card-content" style="height: 275px;">
                                 <div
                                     class="position-absolute top-0 start-0 translate-middle date-blog text-white rounded-5 d-inline-flex">
                                     <div class="me-2"><i class="bi bi-calendar"></i></div>
                                     <div>{{blog.date |jformat:'%Y/%m/%d'}}</div>
                                 </div>
-                                <div class="card-title mt-3">
+                                <div class="card-title mt-3" style="height: 37%;">
                                     <a class="link-underline link-underline-opacity-0 blog-title-card"
-                                        href="{% url 'blogs:details' slug=blog.slug %}"">{{blog.title}}</a>
+                                        href="{% url 'blogs:details' slug=blog.slug %}">{{blog.title}}</a>
                                 </div>
-                                <p class=" card-text snippet-card">{{blog.snippet}}</p>
-                                </div>
-                                <div
-                                    class="card-body border-top d-flex justify-content-between align-items-center footer-card">
+                                <div style="height: 24%;"><p class=" card-text snippet-card">{{blog.snippet}}</p></div>
+                                <div class="border-top d-flex justify-content-between align-items-center pt-3 text-secondary" style="height: 24%;">
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="me-2"><i class="bi bi-person"></i></div>
                                         <div>{{blog.author}}</div>
@@ -59,6 +57,8 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
@@ -67,6 +67,7 @@
         </div>
         <div class="col-12 col-lg-4"></div>
     </div>
+    {% if num_blogs >= 6 %}
     <div class="pagination-section">
         <nav aria-label="Page navigation page-nav">
             <div class="row justify-content-center">
@@ -86,7 +87,8 @@
                     </li>
                     {% for page in blogs.paginator.page_range %}
                     <li class="">
-                        <a class="link-secondary link-underline link-underline-opacity-0" href="?page={{page}}">{{page}}</a>
+                        <a class="link-secondary link-underline link-underline-opacity-0"
+                            href="?page={{page}}">{{page}}</a>
                     </li>
                     {% endfor %}
                     <li class="d-flex align-items-center">
@@ -106,7 +108,9 @@
             </div>
         </nav>
     </div>
+    {% endif %}
 </section>
+
 
 
 {% endblock %}

@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogs',
+    'blogs', 'courses',
     'django_jalali',
+    'taggit',
 ]
 # default settings (optional)
 JALALI_DATE_DEFAULTS = {

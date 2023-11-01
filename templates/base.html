@@ -87,6 +87,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="offcanvas offcanvas-bottom py-lg-2 nav-section" id="navbarSupportedContent">
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -101,7 +102,7 @@
                             </a>
                             <ul class="dropdown-menu p-0 dropdown-course-section shadow rounded-4">
                                 <li class="mb-3 dropdown-item pe-lg-0">
-                                    <a class="first-main-item pe-0" href="#">
+                                    <a class="first-main-item pe-0" href="{% url 'courses:CoursesList' %}">
                                         <div class="d-lg-flex justify-content-between align-items-center">
                                             <div class="d-flex justify-content-start align-items-center">
                                                 <div><i class="bi bi-suit-heart"></i></div>
@@ -149,7 +150,7 @@
                                     </a>
                                 </li>
                                 <li class="mb-3">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="">
                                         <div class="d-flex justify-content-start align-items-center">
                                             <div id="bright_svg"><i class="bi bi-brightness-high"></i></div>
                                             <div class="courses-item">پرستاری</div>
@@ -157,14 +158,14 @@
                                     </a>
                                 </li>
                                 <li class="mb-3">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="">
                                         <div class="d-flex justify-content-start align-items-center">
                                             <div id="clock_svg"><i class="bi bi-clock"></i></div>
                                             <div class="courses-item">دانشگاه‌ پلاسمایی</div>
                                         </div>
                                     </a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">
+                                <li><a class="dropdown-item" href="">
                                         <div class="d-flex justify-content-start align-items-center">
                                             <div id="feather_img"><i class="bi bi-pencil"></i></div>
                                             <div class="courses-item">به زودی</div>
@@ -240,7 +241,7 @@
                                         </div>
                                     </li>
                                     <li class="mb-3">
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{% url 'courses:CoursesList' %}">
                                             <div class="d-flex justify-content-start align-items-center">
                                                 <div id="bright_svg"><i class="bi bi-brightness-high"></i></div>
                                                 <div class="courses-item">پرستاری</div>
@@ -377,6 +378,10 @@
     <script>
         const offcanvasElementList = document.querySelectorAll('.offcanvas')
         const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+    </script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 </body>
 
