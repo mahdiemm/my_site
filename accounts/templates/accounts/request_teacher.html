@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row justify-content-between border border-secondary-subtle"
+            style="margin-top:120px ; border-radius: 20px 20px 0 0;">
+            <div class="col-12 col-md-6 ps-md-0">
+                <img class="img-fluid h-100" src="{% static 'become_instructor.jpg' %}" alt=""
+                    style="border-radius: 20px 20px 0 0;">
+            </div>
+            <div class="col-12 col-md-6 p-4">
+                <form class="row g-3 register-form" method="post" action="">
+                    {% csrf_token %}
+                    <h5 class="fw-bold text-secondary-emphasis">معلم شوید</h5>
+                    <div class="col-12">
+                        {% if form.errors %}
+                        {{form.errors}}
+                        {% endif %}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="inputEmail4" class="blog-title-card" style="margin-bottom: 12px;">در چه زمینه‌ای می‌خواهید تدرس کنید؟</label>
+                        {{form.subjects}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="phone-number" class="blog-title-card" style="margin-bottom: 12px;">نوع حساب</label>
+                        <div class="d-flex felx-row justify-content-between">
+                            {{form.account}}
+                        </div>
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="fullname" class="blog-title-card" style="margin-bottom: 12px;">گواهی‌ها و اسناد</label>
+                        {{form.documents}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="password" class="blog-title-card" style="margin-bottom: 12px;">حساب پرداخت</label>
+                        {{form.payment}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="confirm password" class="blog-title-card" style="margin-bottom: 12px;">اسکن هویت</label>
+                        {{form.identity}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="confirm password" class="blog-title-card" style="margin-bottom: 12px;">اطلاعات اضافی</label>
+                        {{form.body}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <button type="submit" class="btn rounded-3 text-center mb-md-0 btn-email text-white w-100">ارسال درخواست</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="row justify-content-between border border-secondary-subtle align-items-center"
+            style="margin-top:120px ; border-radius: 20px 20px 0 0;">
+            <div class="col-12 col-md-6 ps-md-0">
+                <img class="img-fluid h-100" src="{% static 'front_login.jpg' %}" alt=""
+                    style="border-radius: 20px 20px 0 0;">
+            </div>
+            <div class="col-12 col-md-6 p-4">
+                <form class="row g-3 register-form" method="post" action="">
+                    {% csrf_token %}
+                    <h5 class="fw-bold text-secondary-emphasis">به حساب خود وارد شوید</h5>
+                    <div class="col-12">
+                        {% if form.errors %}
+                        {{form.errors}}
+                        {% endif %}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="inputEmail4" class="blog-title-card" style="margin-bottom: 12px;">ایمیل:</label>
+                        {{form.username}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <label for="inputpassword" class="blog-title-card" style="margin-bottom: 12px;">رمزعبور:</label>
+                        {{form.password}}
+                    </div>
+                    <div class="col-12 my-3">
+                        <button type="submit" class="btn rounded-3 text-center mb-md-0 btn-email text-white w-100">ورود به سیستم</button>
+                    </div>
+                    <div class="col-12 my-4 text-center">
+                        <p class="">حساب ندارید؟ <a
+                                class="text-primary-emphasis fw-bold link-underline link-underline-opacity-0"
+                                href="{% url 'accounts:register' %}">ثبت نام</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

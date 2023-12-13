@@ -12,7 +12,7 @@
                 <h1 class="fs-3 fw-bold mb-5">{{course.title}}</h1>
                 <span class="mb-2">در <a class="text-white link-offset-2" href="#">{{course.subject}}</a></span>
                 <div class="mb-2" style="height: 35px;"></div>
-                <div>ایجاد شده توسط <a class="text-white link-offset-2" role="button">{{course.author}}</a></div>
+                <div>ایجاد شده توسط <a class="text-white link-offset-2" role="button">{{course.author.fullname}}</a></div>
             </div>
             <div class="col-12 col-lg-4 d-none d-lg-block">
                 <img class="img-thumbnail" src="{{course.file.url}}">
@@ -102,7 +102,7 @@
                                 <div class="col-auto comments-num">
                                     <div class="row">
                                         <span class="col-auto pe-0">نظر</span>
-                                        <span class="col w-100 p-0">(۲)</span>
+                                        <span class="col w-100 pe-0 ps-1">({{num_comments}})</span>
                                     </div>
                                 </div>
                                 <div class="col w-100 d-flex flex-column">
@@ -111,8 +111,103 @@
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <textarea class="form-control comment-box" id="exampleFormControlTextarea1"></textarea>
-                                <button type="submit" class="btn comment-button text-white mt-3">ارسال</button>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                    <div id="comment-box">
+                                        {{field.errors}}
+                                        {{field}}
+                                    </div>
+                                    {% endfor %}
+                                    <button type="submit" class="btn comment-button text-white mt-3">ارسال</button>
+                                </form>
+                            </div>
+                            <div class="">
+                                {% for comment in comments %}
+                                <div id="user-comment" class="my-5 border rounded-4 shadow d-flex flex-column p-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                            <div class="me-3">
+                                                <img class="rounded-circle" src="{{comment.name.profile.url}}" alt=""
+                                                    style="height: 40px; width: 40px;">
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center text-start">
+                                                <div class="h-50 w-100 text-start text-primary-emphasis">
+                                                    <span class="fw-bold"
+                                                        style="font-size: 20px;">{{comment.name.fullname}}</span>
+                                                </div>
+                                                <div class="h-50 w-100 text-start text-secondary" style="font-size: 11px;">
+                                                    گروه‌بندی کاربر</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-secondary px-3 py-2" style="font-size: 13px;">
+                                            {{ comment.created|date:"SHORT_DATE_FORMAT" }} {{ comment.created|time:"H:i" }}
+                                        </div>
+                                    </div>
+                                    <div class="px-3 py-2 text-secondary" style="font-size: 14px;">{{comment.body}}</div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#answer" aria-expanded="false"
+                                            aria-controls="answer" style="font-size: 12px;">پاسخ</button>
+                                        <button class="btn btn-outline-secondary mx-3" data-bs-toggle="modal" data-bs-target="#report-box-comment"
+                                            style="font-size: 12px;">گزارش</button>
+                                        {% if user.is_authenticated and comment.name.id == user.id %}
+                                        <form method="delete">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger" style="font-size: 12px;">حذف</button>
+                                        </form>
+                                        {% endif %}
+                                    </div>
+                                    <div class="collapse mt-3" id="answer">
+                                        <div class="card card-body">
+                                            <form action="" method="post">
+                                                {% csrf_token %}
+                                                {% for field in answer_form %}
+                                                <div id="comment-box">
+                                                    {{field.errors}}
+                                                    {{field}}
+                                                </div>
+                                                {% endfor %}
+                                                <button type="submit" class="btn comment-button text-white mt-3">ارسال</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="report-box-comment" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header border-0">
+                                                    <div class="row header-share w-100">
+                                                        <div
+                                                            class="col-auto d-flex flex-row justify-content-between align-items-center">
+                                                            <div class="section-title">گزارش</div>
+                                                        </div>
+                                                        <div class="col d-flex flex-column px-0">
+                                                            <div class="h-50 w-100 border-section"></div>
+                                                            <div class="h-50 w-100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-content border-0 d-flex flex-column justify-content-center">
+                                                    <div class="mt-2">
+                                                        <div class="mx-3">
+                                                            <span class="fs-7 fw-semibold">پیام به بازبین</span>
+                                                            <textarea class="form-control comment-box mt-2"
+                                                                id="exampleFormControlTextarea1"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer border-0">
+                                                    <button type="submit"
+                                                        class="btn comment-button text-white my-2 p-2 fs-6">گزارش</button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">بستن</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

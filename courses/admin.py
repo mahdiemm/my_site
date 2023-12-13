@@ -5,6 +5,8 @@ from . import models
 admin.site.register(models.Questions)
 admin.site.register(models.Courses)
 admin.site.register(models.Lessons)
+admin.site.register(models.CourseComment)
+admin.site.register(models.AnswerCourseComment)
 
 
 

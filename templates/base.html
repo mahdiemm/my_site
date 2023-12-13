@@ -15,7 +15,7 @@
 <body>
     <header>
         <div class="top-navbar d-flex border-bottom">
-            <div class="container">
+            <div class="container flex-wrap">
                 <div class="row align-items-center">
                     <div class="col-lg-9 header-section-1 pt-3 pt-lg-0">
                         <div class="row align-items-center pb-md-2 pb-lg-0">
@@ -67,9 +67,14 @@
                             </div>
                             <div class="col-5 col-md-3 col-lg-8">
                                 <div class="row justify-content-end">
-                                    <div class="col-6 text-end"><a href="#" id="login"
+                                    {% if user.is_authenticated %}
+                                    <div class="col-6 text-end"><a href="{% url 'logout' %}" id="login"
+                                            class="link-body-emphasis text-decoration-none">خروج</a></div>
+                                    {% else %}
+                                    <div class="col-6 text-end"><a href="{% url 'accounts:login' %}" id="login"
                                             class="link-body-emphasis text-decoration-none">ورود</a></div>
-                                    <div class="col-6 text-end"><a href="#" id="signin"
+                                    {% endif %}
+                                    <div class="col-6 text-end"><a href="{% url 'accounts:register' %}" id="signin"
                                             class="link-body-emphasis text-decoration-none">ثبت نام</a></div>
                                 </div>
                             </div>
@@ -81,13 +86,14 @@
     </header>
     <nav class="navbar navbar-expand-lg main-nav p-0 shadow">
         <div class="container">
-            <a class="navbar-brand py-1 m-0" href="#"><img src="{% static 'logo top final test.png' %}" alt=""></a>
+            <div class="py-1 py-sm-2 me-4 me-sm-0">
+            <a class="navbar-brand m-0" href="#"><img src="{% static 'logo top final test.png' %}" alt=""></a></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="offcanvas offcanvas-bottom py-lg-2 nav-section" id="navbarSupportedContent">
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -275,6 +281,12 @@
                     </ul>
                 </div>
             </div>
+            {% if user.is_authenticated %}
+            <div class="ms-4 teach-request">
+                <a href="{% url 'accounts:teacher_request' %}" class="btn rounded-2 text-center mb-md-0 btn-email text-white" type="button"
+                    id="button-addon2">دوره‌ی خودت رو شروع کن</a>
+            </div>
+            {% endif %}
         </div>
     </nav>
 
@@ -382,6 +394,15 @@
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
+    <script>
+        const popover = new bootstrap.Popover('.popover-dismiss', {
+            trigger: 'focus'
+        })
     </script>
 </body>
 

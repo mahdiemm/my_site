@@ -736,6 +736,30 @@ body {
     background-color: #43d477;
     border-radius: 0px 15px 0px 15px;
 }
+#id_phone_number_0{
+    width:40%;
+    margin-left:20px;
+}
+.register-form .form-control{
+    box-shadow:none !important;
+}
+.register-form .form-control:hover, .form-control:focus{
+    border:1px solid #43d477 !important;
+}
+.register-form .form-check-input:checked {
+    background-color: #43d477 !important;
+    border-color: #43d477 !important;
+    box-shadow: none !important;
+}
+@media screen and (max-width: 503px) {
+    .teach-request{
+        padding: 10px 0 !important;
+        width: 100%;
+        text-align: center !important;
+        margin: 0px 30px !important;
+        border-top:1px solid #ececec ;
+    }
+}
 
 
 
